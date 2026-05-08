@@ -4,8 +4,9 @@ const imageSelectionEle = document.querySelector<HTMLDivElement>('.image-selecti
 
 const gameEle = document.querySelector<HTMLDivElement>('.game')
 
+const previewImageEle = document.querySelector<HTMLDivElement>('.preview-image')
 
-function shuffle(arr:string[])
+function shuffle(arr:HTMLCanvasElement[])
 {
     for(let i=arr.length-1;i>0;i--)
     {
@@ -21,7 +22,7 @@ function shuffle(arr:string[])
     return arr
 }
 
-export function loadShuffleImages(splitImages:string[])
+export function loadShuffleImages(splitImages:HTMLCanvasElement[])
 {
     const shuffleImages = shuffle(splitImages)
     // console.log(shuffleImages)
@@ -88,5 +89,18 @@ export function resetGameEle()
 
             child.innerHTML = ""
         }
+    }
+}
+
+export function createPreviewImage(url:string)
+{
+    // create Image 
+    const imageEle = document.createElement('img')
+    imageEle.src = url;
+
+    if(previewImageEle instanceof HTMLDivElement)
+    {
+        previewImageEle.innerHTML = ""
+        previewImageEle.append(imageEle)
     }
 }

@@ -18,44 +18,61 @@
       </section>
 
       <section class="game-container">
-
         <div class="game-container__part1">
-            <div class="game">
-              <div data-index="0" class="box droppable"></div>
-              <div data-index="1" class="box droppable"></div>
-              <div data-index="2" class="box droppable"></div>
-              <div data-index="3" class="box droppable"></div>
-              <div data-index="4" class="box droppable"></div>
-              <div data-index="5" class="box droppable"></div>
-              <div data-index="6" class="box droppable"></div>
-              <div data-index="7" class="box droppable"></div>
-              <div data-index="8" class="box droppable"></div>
-            </div>
-    
-            <!-- Selection part -->
-            <div class="image-selection">
-                <div class="box"></div>
-              <div class="box"></div>
-              <div class="box"></div>
-              <div class="box"></div>
-              <div class="box"></div>
-              <div class="box"></div>
-              <div class="box"></div>
-              <div class="box"></div>
-              <div class="box"></div>
-            </div>
+          <div class="game">
+            <div data-index="0" class="box droppable"></div>
+            <div data-index="1" class="box droppable"></div>
+            <div data-index="2" class="box droppable"></div>
+            <div data-index="3" class="box droppable"></div>
+            <div data-index="4" class="box droppable"></div>
+            <div data-index="5" class="box droppable"></div>
+            <div data-index="6" class="box droppable"></div>
+            <div data-index="7" class="box droppable"></div>
+            <div data-index="8" class="box droppable"></div>
+          </div>
+
+          <!-- Selection part -->
+          <div class="image-selection">
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+          </div>
         </div>
 
         <!-- Previwe Section -->
-        <div class="preview-image">
-            <img alt="original image"  src="./images/original_image.jpg"/>
+        <div>
+          <div class="preview-image">
+            <!-- <img alt="original image" src="./images/original_image.jpg" /> -->
+          </div>
+          <div>
+            <form method="post" enctype="multipart/form-data">
+              <input
+                type="file"
+                id="file-upload"
+                name="file"
+                accept="image/*"
+              />
+              <button type="button" id="upload-image">Upload Image</button>
+            </form>
+          </div>
         </div>
+
+        <!-- <img
+          id="myImage"
+          src="https://media.geeksforgeeks.org/wp-content/uploads/20200615165012/double_quotes.jpg"
+          alt="GeeksForGeeks"
+        /> -->
 
         <div class="game-container__part2">
-            <button class="btn submit-btn">Submit</button>
-            <button class="btn reset-btn">Reset</button>
+          <button class="btn submit-btn">Submit</button>
+          <button class="btn reset-btn">Reset</button>
         </div>
-
       </section>
     </div>
   </body>

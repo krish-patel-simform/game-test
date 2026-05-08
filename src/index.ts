@@ -26,4 +26,6 @@ export const initGameState : GameState = [
     "",
 ]
 
+export const timeOut = "9:59"
+
 export let gameState:GameState = [...initGameState]
