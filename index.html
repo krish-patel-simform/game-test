@@ -1,11 +1,57 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
+    <link rel="stylesheet" href="./index.css" />
+  </head>
+  <body>
+    <div class="container">
+      <section class="header">
+        <div>Time: <span class="header__timer">9:59</span></div>
+      </section>
+
+      <section class="game-container">
+
+        <div class="game-container__part1">
+            <section class="game">
+              <div class="box"></div>
+              <div class="box"></div>
+              <div class="box"></div>
+              <div class="box"></div>
+              <div class="box"></div>
+              <div class="box"></div>
+              <div class="box"></div>
+              <div class="box"></div>
+              <div class="box"></div>
+            </section>
     
-</body>
+            <!-- Selection part -->
+            <section class="image-selection">
+                <div class="box"></div>
+              <div class="box"></div>
+              <div class="box"></div>
+              <div class="box"></div>
+              <div class="box"></div>
+              <div class="box"></div>
+              <div class="box"></div>
+              <div class="box"></div>
+              <div class="box"></div>
+            </section>
+        </div>
+
+        <!-- Previwe Section -->
+        <div class="preview-image">
+            <img alt="original image"  src="./images/original_image.jpg"/>
+        </div>
+
+        <div class="game-container__part2">
+            <button class="btn submit-btn">Submit</button>
+            <button class="btn reset-btn">Reset</button>
+        </div>
+
+      </section>
+    </div>
+  </body>
 </html>

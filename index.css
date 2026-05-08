@@ -1,0 +1,77 @@
+@import url('./root.css');
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    border: 1px solid grey;
+}
+
+/* Utility */
+.btn{
+
+}
+
+.container{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header */
+.header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header__timer{
+
+}
+
+/* Game Container */
+.game-container{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+.game-container__part1{
+    display: flex;
+    flex:1;
+    gap: var(--rem-1);
+}
+.game{
+    flex:1;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(3,1fr);
+}
+.image-selection{
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(3,1fr);
+}
+
+/* part 2 */
+
+.game-container__part2{
+    padding: var(--rem-1);
+    gap: var(--rem-1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.box{
+
+}
+
+/* Preview Section */
+.preview-image
+{
+    
+    & > img{
+        height: 500px;
+        aspect-ratio: 1/1;
+        object-fit: contain;
+    }
+}
