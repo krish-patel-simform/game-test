@@ -6,7 +6,7 @@ const gameEle = document.querySelector<HTMLDivElement>('.game')
 
 const previewImageEle = document.querySelector<HTMLDivElement>('.preview-image')
 
-function shuffle(arr:HTMLCanvasElement[])
+function shuffle(arr:string[])
 {
     for(let i=arr.length-1;i>0;i--)
     {
@@ -22,7 +22,7 @@ function shuffle(arr:HTMLCanvasElement[])
     return arr
 }
 
-export function loadShuffleImages(splitImages:HTMLCanvasElement[])
+export function loadShuffleImages(splitImages:string[])
 {
     const shuffleImages = shuffle(splitImages)
     // console.log(shuffleImages)
