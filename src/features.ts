@@ -1,4 +1,8 @@
+import { gameState } from "./index.ts";
+
 const gamePart1Ele = document.querySelector<HTMLElement>('.game-container__part1')!
+
+
 
 export function dragNDrop(e:MouseEvent)
 {
@@ -52,7 +56,7 @@ export function dragNDrop(e:MouseEvent)
             if(!eleBelow)            
                 return;
 
-            const droppableEle = eleBelow.closest('.droppable')
+            const droppableEle = eleBelow.closest<HTMLElement>('.droppable')
             if(!droppableEle)
             {
                 imageEle.style.position = 'static';
@@ -62,10 +66,19 @@ export function dragNDrop(e:MouseEvent)
                 droppableEle.append(imageEle)
                 imageEle.style.position = ''
                 droppableEle.classList.remove('droppable')
+                
+                //drop successfully
+                //update the game state
+                const index = Number(droppableEle.dataset.index)
+                const imageURL = imageEle.getAttribute('src')
+
+                if(index != undefined && imageURL != undefined)
+                {
+                    gameState[index] = imageURL
+                    console.log(gameState)
+                }
             }
         }
-
-        // check it is at correct position or not 
     }
 
     imageEle.addEventListener('mouseup',onMouseUp)
