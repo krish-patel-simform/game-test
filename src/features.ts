@@ -158,26 +158,31 @@ export function handleTimer() {
 export function handleUploadImage() {
     if (fileInput instanceof HTMLInputElement) {
         console.log(fileInput.files);
-        const [file] = fileInput.files;
-        const reader = new FileReader();
-
-        reader.onload = (e) => {
-            const target = e.target;
-            if (target) {
-                const base64 = target.result?.toString();
-                if (base64) {
-                    base64ToFile(base64, "image/jpeg", file.name);
-                    console.log(target.result);
+        // const [file:File] = fileInput.files;
+        const files = fileInput.files
+        if(files && files[0])
+        {
+            const file:File = files[0]
+            const reader = new FileReader();
+    
+            reader.onload = (e) => {
+                const target = e.target;
+                if (target) {
+                    const base64 = target.result?.toString();
+                    if (base64) {
+                        base64ToFile(base64, "image/jpeg", file.name);
+                        console.log(target.result);
+                    }
                 }
-            }
-        };
-
-        reader.onerror = (err) => {
-            console.error("Error reading file:", err);
-            alert("An error occurred while reading the file.");
-        };
-
-        reader.readAsDataURL(file);
+            };
+    
+            reader.onerror = (err) => {
+                console.error("Error reading file:", err);
+                alert("An error occurred while reading the file.");
+            };
+    
+            reader.readAsDataURL(file);
+        }
     }
 }
 
