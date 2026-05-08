@@ -1,7 +1,7 @@
-import { gameState } from "./index.ts";
+import { gameState, splitImages } from "./index.ts";
+import { loadShuffleImages, resetGameEle, resetGameState } from "./utility.ts";
 
-const gamePart1Ele = document.querySelector<HTMLElement>('.game-container__part1')!
-
+const gamePart1Ele = document.querySelector<HTMLDivElement>('.game-container__part1')!
 
 
 export function dragNDrop(e:MouseEvent)
@@ -83,3 +83,42 @@ export function dragNDrop(e:MouseEvent)
 
     imageEle.addEventListener('mouseup',onMouseUp)
 }   
+
+export function handleSubmit(e:PointerEvent)
+{
+    for(let index=0;index<gameState.length;index++)
+    {
+        const state = gameState[index];
+        if(state == "" || state == undefined)
+        {
+            alert("Please Fill all the boxes first")
+            return;
+        }
+
+        
+        const imageIndex = Number(state.split('_').at(-1)?.[0])
+        
+        console.log(imageIndex)
+        if(index !== imageIndex)
+        {
+            alert("Wrong try again")
+            //need to reset the game
+            return;
+        }
+    }
+    return; 
+}
+
+export function handleReset(e:PointerEvent)
+{
+    // reset the gameimages
+    resetGameEle()
+
+    // reset the game State
+    resetGameState()
+
+    // load the shuffle images
+    loadShuffleImages(splitImages)
+
+    console.log(gameState)
+}

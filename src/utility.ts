@@ -1,4 +1,9 @@
+import { gameState } from "./index.ts";
+
 const imageSelectionEle = document.querySelector<HTMLDivElement>('.image-selection')!
+
+const gameEle = document.querySelector<HTMLDivElement>('.game')
+
 
 function shuffle(arr:string[])
 {
@@ -29,7 +34,6 @@ export function loadShuffleImages(splitImages:string[])
         const child = children[i]
         if(child)
         {
-            const divHeight = child.getBoundingClientRect().height;
             const divWidth= child.getBoundingClientRect().width
             // console.log(i,divHeight)
             const img = document.createElement('img')
@@ -39,6 +43,50 @@ export function loadShuffleImages(splitImages:string[])
             img.style.width = `${divWidth}px`;
 
             child.append(img)
+        }
+    }
+}
+
+export function resetGameState()
+{
+    for(let i=0;i<gameState.length;i++)
+    {
+        gameState[i] = ""
+    }
+}
+
+export function resetGameEle()
+{
+    if(gameEle instanceof HTMLDivElement)
+    {
+        const children = gameEle.children;
+
+        for(let i=0;i<children.length;i++)
+        {
+            const child = children[i]
+            if(!child)
+                return
+
+            child.firstElementChild?.remove()
+            child.classList.add('droppable')
+        }
+    }
+    else
+    {
+        console.log("Error cd")
+    }
+
+    if(imageSelectionEle instanceof HTMLDivElement)
+    {
+        const children = imageSelectionEle.children;
+
+        for(let i=0;i<children.length;i++)
+        {
+            const child = children[i]
+            if(!child)
+                return
+
+            child.innerHTML = ""
         }
     }
 }

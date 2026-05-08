@@ -26,4 +26,4 @@ export const initGameState : GameState = [
     "",
 ]
 
-export const gameState:GameState = {...initGameState}
+export let gameState:GameState = [...initGameState]
