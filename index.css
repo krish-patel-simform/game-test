@@ -10,6 +10,10 @@
 .btn{
 
 }
+.img-contain
+{
+    aspect-ratio: 1/1;
+}
 
 .container{
     height: 100vh;
@@ -62,7 +66,7 @@
     align-items: center;
 }
 .box{
-
+    height: 100%;
 }
 
 /* Preview Section */

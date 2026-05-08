@@ -1,0 +1,72 @@
+const gamePart1Ele = document.querySelector<HTMLElement>('.game-container__part1')!
+
+export function dragNDrop(e:MouseEvent)
+{
+    console.log(e)
+    e.preventDefault()
+    const target = e.target as Element
+    if(!target)
+        return;
+
+    const imageEle = target.closest('img')
+    if(!imageEle)
+        return;
+
+    let shiftX = e.clientX - imageEle.getBoundingClientRect().left;
+    let shiftY = e.clientY - imageEle.getBoundingClientRect().top;
+
+    // make an absolute
+    imageEle.style.position = 'absolute';
+    imageEle.style.zIndex = "1000";
+
+    function onMoveAt(pageX:number,pageY:number)
+    {
+        if(imageEle)
+        {
+            imageEle.style.left = pageX - shiftX  + 'px';
+            imageEle.style.top = pageY - shiftY  + 'px';
+        }
+    }
+
+    function onMouseMove(e:MouseEvent)
+    {
+        onMoveAt(e.pageX,e.pageY)
+    }
+
+    // attach a mousemove listener
+    gamePart1Ele.addEventListener('mousemove',onMouseMove)
+
+    //Listener for drop the Image
+    function onMouseUp(e:MouseEvent)
+    {
+        //remove the mouse move listener
+        gamePart1Ele.removeEventListener('mousemove',onMouseMove)
+        
+        if(imageEle)
+        {
+            imageEle.removeEventListener('mouseup',onMouseUp)
+            imageEle.hidden = true
+            const eleBelow = document.elementFromPoint(e.clientX,e.clientY)
+            imageEle.hidden = false;
+
+            if(!eleBelow)            
+                return;
+
+            const droppableEle = eleBelow.closest('.droppable')
+            if(!droppableEle)
+            {
+                imageEle.style.position = 'static';
+            }
+            else
+            {
+                droppableEle.append(imageEle)
+                imageEle.style.position = ''
+                droppableEle.classList.remove('droppable')
+            }
+        }
+
+        // check it is at correct position or not 
+    }
+
+    imageEle.addEventListener('mouseup',onMouseUp)
+}   

@@ -3,15 +3,15 @@
 import type { GameState } from "./types.ts";
 
 export const splitImages : string[]= [
-    'part_0.png',
-    'part_1.png',
-    'part_2.png',
-    'part_3.png',
-    'part_4.png',
-    'part_5.png',
-    'part_6.png',
-    'part_7.png',
-    'part_8.png',
+    'part_0.jpg',
+    'part_1.jpg',
+    'part_2.jpg',
+    'part_3.jpg',
+    'part_4.jpg',
+    'part_5.jpg',
+    'part_6.jpg',
+    'part_7.jpg',
+    'part_8.jpg',
 ]
 
 export const initGameState : GameState = [

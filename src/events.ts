@@ -1,10 +1,15 @@
 // When Load the HTML
 
+import { dragNDrop } from "./features.ts"
 import { splitImages } from "./index.ts"
-import { shuffle } from "./utility.ts"
+import { loadShuffleImages } from "./utility.ts"
+
+const imageSelectionEle = document.querySelector<HTMLDivElement>('.image-selection')!
+
 
 document.addEventListener('DOMContentLoaded',()=>{
     // insert the shuffle images
-    const shuffleImages = shuffle(splitImages)
-    console.log(shuffleImages)
+    loadShuffleImages(splitImages)
 })
+
+imageSelectionEle.addEventListener('mousedown',dragNDrop)
